@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <!--Header-->>
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder"> پروفایل کاربری </h1>
+                <p class="lead fw-normal text-white-50 mb-0"> میتوانید اطلاعات خود را بازدید یا ویرایش کنید </p>
+            </div>
+        </div>
+    </header>
+
+    <!--Form-->
+    <div class="container">
+    <div class="row">
+        <center><br>
+            <div class=""col-10>
+                <form method="POST" action="{% url 'user_update' %}">
+                    {% csrf_token %}
+                    <strong> پروفایل </strong>
+                    {{ form.as_p }}<br>
+                    <strong> اطلاعات ارسال </strong>
+                    {{ shipping_form.as_p }}<br>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form><br>
+                <a class="btn btn-warning" href="{% url 'password_update' %}"> ویرایش رمز عبور </a>
+            </div>
+        </center>
+    </div>
+    </div>
+
+    <br><br>
+
+{% endblock %}
